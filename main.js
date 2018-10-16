@@ -9,6 +9,7 @@ function generateRepoElement(item) {
     return `
     <p>${item.name}</p>
     <a href="${item.html_url}">${item.name}</a>
+    <p>${item.description}</p>
     `;
 }
 
