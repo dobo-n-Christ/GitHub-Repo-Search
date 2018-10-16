@@ -7,7 +7,6 @@ function getUserHandle() {
 
 function generateRepoElement(item) {
     return `
-    <h2>${item.owner.login}'s Repos:</h2>
     <p>${item.name}</p>
     <a href="${item.html_url}">Go to ${item.name}</a>
     `;
@@ -15,7 +14,7 @@ function generateRepoElement(item) {
 
 function generateRepoDataString(array) {
     const repos = array.map((repo) => generateRepoElement(repo));
-    return repos.join('');
+    return `<h2>${array[0].owner.login}'s Repos:</h2>${repos.join('')}`;
 }
 
 function displayRepoData(data) {
@@ -31,7 +30,7 @@ function getRepoData() {
             return response.json();
         }
         else {
-            throw new Error(response.message);
+            throw new Error('user handle not found');
         }
     }).then(responseJson => displayRepoData(responseJson))
     .catch(err => {$('.js-results').text(`Something went wrong: ${err.message}`);
