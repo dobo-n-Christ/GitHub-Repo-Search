@@ -7,9 +7,9 @@ function getUserHandle() {
 
 function generateRepoElement(item) {
     return `
+    <h2>${item.owner.login}'s Repos:</h2>
     <p>${item.name}</p>
-    <a href="${item.html_url}">${item.name}</a>
-    <p>${item.description}</p>
+    <a href="${item.html_url}">Go to ${item.name}</a>
     `;
 }
 
